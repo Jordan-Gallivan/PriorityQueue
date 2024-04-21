@@ -57,9 +57,9 @@ struct PriorityQueue<Element> {
     ///         case (.success, .success):
     ///             return false
     ///         case (.success, .failure(_)):
-    ///             return false
-    ///         case (.failure(_), .success):
     ///             return true
+    ///         case (.failure(_), .success):
+    ///             return false
     ///         }
     ///     }
     ///
@@ -78,11 +78,11 @@ struct PriorityQueue<Element> {
     }
     
     /// Creates a new Priority Queue containing the elements of a collection, to be sorted using the given
-    ///  predicate as the comparison between elements.
+    /// predicate as the comparison between elements.
     ///
     ///     enum Status {
-    ///         case success
-    ///         case failure(Int)
+    ///        case success
+    ///        case failure(Int)
     ///     }
     ///
     ///     var queue: PriorityQueue<Status> = PriorityQueue([.failure(1), .success, .failure(2), .failure(3)]) {
@@ -92,9 +92,9 @@ struct PriorityQueue<Element> {
     ///         case (.success, .success):
     ///             return false
     ///         case (.success, .failure(_)):
-    ///             return false
-    ///         case (.failure(_), .success):
     ///             return true
+    ///         case (.failure(_), .success):
+    ///             return false
     ///         }
     ///     }
     ///
