@@ -12,7 +12,7 @@ through the trailing closure.  If a comparison function is passed as through the
 element's existing comparison method will be ignored, and the heap property will be maintained
 through the use of the passed comparison function.
 
-```
+```swift
 // create a maximum heap priority queue using the element's comparison function
 var intQueue = PriorityQueue([10, 20, 30, 40, 50])
 if let intQueueMax = intQueue.peek() {
@@ -31,7 +31,7 @@ if let minQueueMin = minQueue.peek() {
 You can also create a priority queue with any element type provided a comparison function is passed
 through the trailing closure.
 
-```
+```swift
 enum Status {
     case success
     case failure(Int)
@@ -65,7 +65,7 @@ Accessing Priority Queue Values
 =======================
 Use the `isEmpty` property to check quickly whether the priority queue has any elements,
 or use the `count` property to find the number of elements in the priority queue.
-```
+```swift
 if intQueue.isEmpty {
     print("The Queue is Empty")
 } else {
@@ -77,7 +77,7 @@ if intQueue.isEmpty {
 Priority Queue Operations
 =======================
 Use the `add(_:)` method to add an element to the priority queue.
-```
+```swift
 intQueue.add(60)
 if let maxElement = intQueue.peek() {
     print(maxElement)
@@ -86,7 +86,7 @@ if let maxElement = intQueue.peek() {
 ```
 Use the `peek()` method to view the maximum element in the priority queue
 without modifying the queue.
-```
+```swift
 print("The Queue has \(intQueue.count) elements")
 if let currentMaxElement = intQueue.peek() {
     print(currentMaxElement)
@@ -98,7 +98,7 @@ print("The Queue has \(intQueue.count) elements")
 ```
 Use the `poll()` method to view and remove the maximum element in the
 priority queue.
-```
+```swift
 print("The Queue has \(intQueue.count) elements")
 if let removedMaxElement = intQueue.poll() {
     print(removedMaxElement)
