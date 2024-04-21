@@ -16,14 +16,14 @@ through the use of the passed comparison function.
 // create a maximum heap priority queue using the element's comparison function
 var intQueue = PriorityQueue([10, 20, 30, 40, 50])
 if let intQueueMax = intQueue.peek() {
-  print(intQueueMax)
+    print(intQueueMax)
 }
 // Prints "50"
 
 // create a minimum heap priority queue using a custom comparison function
 var minQueue = PriorityQueue([10, 20, 30, 40, 50]) { $1 > $0 }
 if let minQueueMin = minQueue.peek() {
-  print(minQueueMin)
+    print(minQueueMin)
 }
 // Prints "10"
 ```
@@ -33,58 +33,58 @@ through the trailing closure.
 
 ```
 enum Status {
-  case success
-  case failure(Int)
+    case success
+    case failure(Int)
 }
 
 var enumQueue: PriorityQueue<Status> = PriorityQueue([.failure(1), .success, .failure(2), .failure(3)]) {
-  switch ($0, $1) {
-  case let (.failure(aAttempts), .failure(bAttempts)):
-    return aAttempts < bAttempts
-  case (.success, .success):
-    return false
-  case (.success, .failure(_)):
-    return true
-  case (.failure(_), .success):
-    return false
-  }
+    switch ($0, $1) {
+    case let (.failure(aAttempts), .failure(bAttempts)):
+        return aAttempts < bAttempts
+    case (.success, .success):
+        return false
+    case (.success, .failure(_)):
+        return true
+    case (.failure(_), .success):
+        return false
+    }
 }
 
 if let maxElement = enumQueue.poll() {
-  print(maxElement)
+    print(maxElement)
 }
 // Prints "success"
 
 if let nextMaxElement = enumQueue.poll() {
-  print(nextMaxElement)
+    print(nextMaxElement)
 }
 // Prints "failure(1)"
 ```
 
 Accessing Priority Queue Values
 =======================
-- Use the `isEmpty` property to check quickly whether the priority queue has any elements,
+Use the `isEmpty` property to check quickly whether the priority queue has any elements,
 or use the `count` property to find the number of elements in the priority queue.
 ```
 if intQueue.isEmpty {
-  print("The Queue is Empty")
+    print("The Queue is Empty")
 } else {
-  print("The Queue has \(intQueue.count) elements.")
+    print("The Queue has \(intQueue.count) elements.")
 }
 // Prints "The Queue has 5 elements."
 ```
 
 Priority Queue Operations
 =======================
-- Use the `add(_:)` method to add an element to the priority queue.
-  ```
-  intQueue.add(60)
-  if let maxElement = intQueue.peek() {
+Use the `add(_:)` method to add an element to the priority queue.
+```
+intQueue.add(60)
+if let maxElement = intQueue.peek() {
     print(maxElement)
-  }
-  // Prints "60"
-  ```
-- Use the `peek()` method to view the maximum element in the priority queue
+}
+// Prints "60"
+```
+Use the `peek()` method to view the maximum element in the priority queue
 without modifying the queue.
 ```
 print("The Queue has \(intQueue.count) elements")
@@ -96,7 +96,7 @@ print("The Queue has \(intQueue.count) elements")
 // Prints "60"
 // Prints "The Queue has 6 elements."
 ```
-- Use the `poll()` method to view and remove the maximum element in the
+Use the `poll()` method to view and remove the maximum element in the
 priority queue.
 ```
 print("The Queue has \(intQueue.count) elements")
