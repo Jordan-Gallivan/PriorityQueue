@@ -2,6 +2,15 @@
 
 A queue data structure that maintains a maximum heap property.
 
+## Installation
+
+1. File > Add Package Dependency
+2. Type https://github.com/Jordan-Gallivan/PriorityQueue in the search window.
+3. Select "Add Package"
+4. Enjoy!
+
+## How to Use
+
 You can use a priority queue instead of a queue when the maximum element in the queue 
 must be accessible in O(1) time without modifying the queue, or O(log *n*) time by removing
 the maximum element.
@@ -37,7 +46,9 @@ enum Status {
     case failure(Int)
 }
 
-var enumQueue: PriorityQueue<Status> = PriorityQueue([.failure(1), .success, .failure(2), .failure(3)]) {
+let collection: [Status] = [.failure(1), .success, .failure(2), .failure(3)]
+
+var enumQueue = PriorityQueue(collection) {
     switch ($0, $1) {
     case let (.failure(aAttempts), .failure(bAttempts)):
         return aAttempts < bAttempts

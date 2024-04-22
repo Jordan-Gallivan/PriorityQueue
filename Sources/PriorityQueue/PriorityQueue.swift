@@ -63,10 +63,8 @@ struct PriorityQueue<Element> {
     ///         }
     ///     }
     ///
-    ///     guard let maxElement = queue.peek() else {
-    ///         print("Empty Queue")
-    ///     }
-    ///     // Prints "Empty Queue")
+    ///     print(queue.isEmpty)
+    ///     // Prints "true"
     ///
     /// - Complexity: O(1)
     /// - Parameters:
@@ -84,8 +82,10 @@ struct PriorityQueue<Element> {
     ///        case success
     ///        case failure(Int)
     ///     }
+    ///     
+    ///     let collection: [Status] = [.failure(1), .success, .failure(2), .failure(3)]
     ///
-    ///     var queue: PriorityQueue<Status> = PriorityQueue([.failure(1), .success, .failure(2), .failure(3)]) {
+    ///     var enumQueue = PriorityQueue(collection) {
     ///         switch ($0, $1) {
     ///         case let (.failure(aAttempts), .failure(bAttempts)):
     ///             return aAttempts < bAttempts
@@ -139,7 +139,7 @@ struct PriorityQueue<Element> {
         var parent = (child - 1) / 2
         
         // percolate up
-        while (parent >= 0 && !comparator(heap[parent], heap[child])) {
+        while (parent >= 0 && comparator(heap[child], heap[parent])) {
             heap.swapAt(parent, child)
             child = parent
             parent = Int((child - 1) / 2)
